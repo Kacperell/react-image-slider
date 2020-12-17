@@ -76,13 +76,13 @@ function Slider() {
         <div className='slider'>
 
             <div className="slider__content">
-                {current != 0 &&
+                {current !== 0 &&
                     <Button aria-label="Previous slide" className='slider__btn slider__btn--prev' onClick={prevSlide}>
                         <NavigateBeforeIcon
                         />
                     </Button>
                 }
-                {current != sliderArrLenght - 1 &&
+                {current !== sliderArrLenght - 1 &&
                     <Button aria-label="Next slide" className='slider__btn slider__btn--next' onClick={nextSlide}>
                         <NavigateNextIcon />
                     </Button>
@@ -102,7 +102,7 @@ function Slider() {
                                 className='slider__image'
                             />
 
-                            {index == current &&
+                            {index === current &&
                                 <div ref={refHeartIcon} className='slider__icon-hear'>
                                     <svg viewBox="-5 -28 521.00002 512" xmlns="http://www.w3.org/2000/svg">
                                         {/* svg heart icon from flaticon.com */}
