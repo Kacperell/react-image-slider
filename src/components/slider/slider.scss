@@ -1,0 +1,167 @@
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .slider__content,
+    .slider__image {
+        max-width: 100%;
+        max-height: 700px;
+        width: auto;
+        height: auto;
+    }
+
+    .slider__content {
+        position: relative;
+        height: 700px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .slider__image {
+        border-radius: 5px;
+    }
+
+    @media (max-width: 1025px) {
+
+        .slider__content,
+        .slider__image {
+            max-height: 450px;
+        }
+
+        .slider__content {
+            height: 450px; //If the photo is not loading yet
+        }
+    }
+
+    @media (max-width: 769px) {
+
+        .slider__content,
+        .slider__image {
+            max-height: 250px;
+        }
+
+        .slider__content {
+            height: 250px; //If the photo is not loading yet
+        }
+    }
+
+    .slider__slide {
+        position: relative;
+        width: 0;
+        height: 0;
+        transition: ease 1s;
+        transition-property: transform;
+    }
+
+
+    // Animation to make the 'illusion' of scrolling photos
+    .slider__slide--from-left {
+        transform: translateX(-160px);
+    }
+
+    .slider__slide--from-right {
+        transform: translateX(160px);
+    }
+
+    .slider__slide--active {
+        transform: translateX(0);
+        width: auto;
+        height: auto;
+    }
+
+    .slider__slide--active.slider__slide--to-right {
+        transform: translateX(160px);
+    }
+
+    .slider__slide--active.slider__slide--to-left {
+        transform: translateX(-160px);
+    }
+
+
+
+
+
+    // slider button
+    button.slider__btn {
+        position: absolute;
+        z-index: 2;
+        height: 100%;
+        color: white;
+    }
+
+    button.slider__btn--next {
+        right: 0;
+    }
+
+    button.slider__btn--prev {
+        left: 0;
+    }
+}
+
+
+// Heart in the center of the photo
+.slider__icon-hear {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    width: 50px;
+    transform: scale(0);
+    transition: all .2s ease-in-out;
+
+    svg path {
+        fill: transparent;
+        stroke-width: 10;
+        stroke: rgba(255, 255, 255, 0.226);
+        stroke-dasharray: 1560;
+    }
+
+}
+
+@keyframes anime-heart {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    40% {
+        stroke-dashoffset: 1560;
+        stroke: #f50057;
+    }
+
+    80% {
+        stroke-dashoffset: 3120;
+        fill: transparent;
+    }
+
+    100% {
+        stroke-dashoffset: 3120;
+        fill: #f50057;
+    }
+}
+
+@keyframes anime-heart-out {
+    0% {
+        stroke-dashoffset: 3120;
+        stroke: #f50057;
+        fill: #f500563d;
+    }
+
+    40% {
+        stroke-dashoffset: 3120;
+        fill: #f500561f;
+    }
+
+    60% {
+        fill: transparent;
+    }
+
+    80% {
+        stroke-dashoffset: 1560;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}

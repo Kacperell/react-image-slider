@@ -1,0 +1,34 @@
+.sliderLikes {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    max-width: 95%;
+
+    .sliderLikes__count {
+        font-size: 20px;
+        width: 200px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .sliderLikes__count--number {
+            display: block;
+            font-weight: bold;
+            transition: all .2s ease-in-out;
+        }
+    }
+
+    @media (max-width: 769px) {
+        .sliderLikes__count {
+            padding: 10px;
+            font-size: 16px;
+            width: 150px;
+
+            .sliderLikes__count--number {
+                padding: 8px;
+                width: 40px;
+            }
+        }
+    }
+}
